@@ -59,8 +59,9 @@ ADRC控制器结构如下图所示：
 
 正常的画风是这样的：
 
-
-
+<div align=center>
+<img src="http://www.apicsllc.com/apics/Ie_cdc01/Image211.gif" width="500"  />
+</div>
 
 ## 参考文献
 [1]韩京清. 自抗扰控制技术: 估计补偿不确定因素的控制技术[M]. 国防工业出版社, 2008.
