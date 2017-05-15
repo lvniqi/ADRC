@@ -50,6 +50,7 @@ PID中的I项是用于抑制常值扰动，减少稳态误差的。然而添加I
 PID是将比例、积分、微分做线性加权和作为调节器输出扔给被控对象的(类似单个无偏置神经元？:point_left:)。这么做是不是合适？用非线性组合是不是更好？
 
 
+<img src="https://yuml.me/diagram/scruffy/class/[日本語]->[Köttbullar]" >
 
 
 
