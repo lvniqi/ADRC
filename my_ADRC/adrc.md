@@ -102,9 +102,8 @@ ADRC中的动态过程是通过跟踪微分器来实现的。
 
 所以状态变量方程为
 
-<div align=left>
-<img src="http://latex.codecogs.com/gif.latex?\left\{\begin{matrix} \dot{x_1} = x_2 \\ \dot{x_2} = -r^2x_1-2rx_2+r^2v(t) \\ y = x_2 \end{matrix}\right."/>
-</div>
+<a href="https://www.codecogs.com/eqnedit.php?latex=D=\left&space;\{(x_1,y_1),(x_2,y_2),...,(x_m,y_m)&space;\right&space;\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\left\{\begin{matrix} \dot{x_1} = x_2 \\ \dot{x_2} = -r^2x_1-2rx_2+r^2v(t) \\ y = x_2 \end{matrix}\right.}" /></a>
+
 
 
 ## 参考文献
