@@ -146,7 +146,6 @@ x1为跟踪输出，x2为微分输出，h为采样周期
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\left\{&space;\begin{matrix}&space;\dot{z_1}&space;=&space;z_2&space;&plus;l_1(y_z-y)&space;\\&space;\dot{z_2}&space;=&space;a_1z_1&plus;a_2z_2&plus;u&space;&plus;l_2(y_z-y)&space;\\&space;y_z&space;=&space;z_1&space;\end{matrix}&space;\right." target="_blank"><img src="https://latex.codecogs.com/png.latex?\inline&space;\left\{&space;\begin{matrix}&space;\dot{z_1}&space;=&space;z_2&space;&plus;l_1(y_z-y)&space;\\&space;\dot{z_2}&space;=&space;a_1z_1&plus;a_2z_2&plus;u&space;&plus;l_2(y_z-y)&space;\\&space;y_z&space;=&space;z_1&space;\end{matrix}&space;\right." title="\left\{ \begin{matrix} \dot{z_1} = z_2 +l_1(y_z-y) \\ \dot{z_2} = a_1z_1+a_2z_2+u +l_2(y_z-y) \\ y_z = z_1 \end{matrix} \right." /></a>
 
-
 令e = z-y那么
 
 
