@@ -15,11 +15,11 @@
 
 如果把这样的pid控制器写成传递函数，就是
 
-![](http://latex.codecogs.com/gif.latex?W(s)=P+I\\frac{1}{s}+Ds)
+![W(s)=P+I\\frac{1}{s}+Ds](http://latex.codecogs.com/gif.latex?W(s)=P+I\\frac{1}{s}+Ds)
 
 Z变换的话是变成
 
-![](http://latex.codecogs.com/gif.latex?W(z)=P+I\cdot{T_s}\\frac{1}{z-1}+D\\frac{z-1}{z\cdot{T_s}})
+![W(z)=P+I\cdot{T_s}\\frac{1}{z-1}+D\\frac{z-1}{z\cdot{T_s}}](http://latex.codecogs.com/gif.latex?W(z)=P+I\cdot{T_s}\\frac{1}{z-1}+D\\frac{z-1}{z\cdot{T_s}})
 
 嗯~看起来挺不错的，那么问题在哪儿呢？
 
@@ -68,10 +68,10 @@ ADRC控制器结构如下图所示：
 
 看着是不是和那些个pid好不一样。
 照我的理解，原有的PID相当于这之中的**非线性组合**，
-而**动态过程构建**、**扩展状态观测器**这两个是新添加的模块。
+而**过渡过程构建**、**扩展状态观测器**这两个是新添加的模块。
 抛去**非线性组合**，我们先来看看剩下的两个。
 
-#### 动态过程构建(跟踪微分器TD)
+#### 过渡过程构建(跟踪微分器TD)
 ADRC中的动态过程是通过跟踪微分器来实现的。
 跟踪微分器本不是用于实现动态过程，是为了从被污染的信号中求取微分而设计的。
 然后对微分进行积分，得到跟踪信号。
@@ -109,10 +109,20 @@ ADRC中的动态过程是通过跟踪微分器来实现的。
 <a href="https://www.codecogs.com/eqnedit.php?latex=\left&space;\{\begin{matrix}&space;x_1(k&plus;1)&space;=&space;x1(k)&plus;hx2(k)&space;\\&space;x_2(k&plus;1)&space;=&space;x2(k)&plus;h(-r^2(x_1(k)-v(k))-2rx_2(k))&space;\end{matrix}&space;\right." target="_blank"><img src="https://latex.codecogs.com/gif.latex?\left&space;\{\begin{matrix}&space;x_1(k&plus;1)&space;=&space;x1(k)&plus;hx2(k)&space;\\&space;x_2(k&plus;1)&space;=&space;x2(k)&plus;h(-r^2(x_1(k)-v(k))-2rx_2(k))&space;\end{matrix}&space;\right." title="\left \{\begin{matrix} x_1(k+1) = x1(k)+hx2(k) \\ x_2(k+1) = x2(k)+h(-r^2(x_1(k)-v(k))-2rx_2(k)) \end{matrix} \right." /></a>
 
 x1为跟踪输出，x2为微分输出，h为采样周期
+差分效果如下所示
 
-![](./images/TD_i_d.PNG)
+![差分效果](./images/TD_i_d.PNG)
+
+跟踪效果如下所示
+
+![跟踪效果](./images/TD_i_t.PNG)
 
 看起来不错，那么这么做的代价是什么。
+眼尖的可能已经看出来了，跟踪有滞后。其实这么做，差分和跟踪都会有滞后。
+这样的滞后一方面限制了系统的带宽，另一方面为系统增加了**过渡过程**。
+因为系统实际上由于惯性的原因不可能完全跟踪输入，适当设计过渡过程可以降低超调。
+此外我这儿说的是线性的跟踪微分器，
+最优跟踪微分器有所改动，但思路是一脉相承的，想了解的可以看下书。
 
 ## 参考文献
 [1]韩京清. 自抗扰控制技术: 估计补偿不确定因素的控制技术[M]. 国防工业出版社, 2008.
