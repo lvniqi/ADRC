@@ -121,8 +121,8 @@ x1为跟踪输出，x2为微分输出，h为采样周期
 眼尖的同学可能已经看出来了，跟踪有滞后。其实这么做，微分和跟踪都会有滞后。
 我们将r的值改小一点看看。
 <div align=center>
-<img src="./images/TD_i_d_e.PNG" height="400"  />
-<img src="./images/TD_i_t_e.PNG" height="400"  />
+<img src="./images/TD_i_d_e.PNG" height="300"  />
+<img src="./images/TD_i_t_e.PNG" height="300"  />
 </div>
 
 发现了吧，微分滞后到几乎没有超前了，而跟踪滞后了90°，并且幅值也变小了。系统的带宽被限制了。
