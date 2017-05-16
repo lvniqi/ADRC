@@ -136,7 +136,7 @@ x1为跟踪输出，x2为微分输出，h为采样周期
 状态观测器的作用就是根据系统输入和输出估计系统的状态信息。
 观察一个二阶系统
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\left\{\begin{matrix}&space;\dot{x_1}&space;=&space;x_2&space;\\&space;\dot{x_2}&space;=&space;a_1x_1&plus;a_2x_2&plus;u&space;\\&space;y&space;=&space;x_1&space;\end{matrix}\right." target="_blank"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\left\{\begin{matrix}&space;\dot{x_1}&space;=&space;x_2&space;\\&space;\dot{x_2}&space;=&space;a_1x_1&plus;a_2x_2&plus;u&space;\\&space;y&space;=&space;x_1&space;\end{matrix}\right." title="\left\{\begin{matrix} \dot{x_1} = x_2 \\ \dot{x_2} = a_1x_1+a_2x_2+u \\ y = x_1 \end{matrix}\right." /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\left\{&space;\begin{matrix}&space;\dot{x_1}&space;=&space;x_2&space;\\&space;\dot{x_2}&space;=&space;a_1x_1&plus;a_2x_2&plus;u&space;\\&space;y&space;=&space;x_1&space;\end{matrix}&space;\right." target="_blank"><img src="https://latex.codecogs.com/png.latex?\inline&space;\left\{&space;\begin{matrix}&space;\dot{x_1}&space;=&space;x_2&space;\\&space;\dot{x_2}&space;=&space;a_1x_1&plus;a_2x_2&plus;u&space;\\&space;y&space;=&space;x_1&space;\end{matrix}&space;\right." title="\left\{ \begin{matrix} \dot{x_1} = x_2 \\ \dot{x_2} = a_1x_1+a_2x_2+u \\ y = x_1 \end{matrix} \right." /></a>
 
 由于a1,a2未知，我们只能根据输出y和输入u估计整个状态变量z。
 令e = z-y那么
