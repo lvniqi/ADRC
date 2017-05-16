@@ -100,10 +100,19 @@ ADRC中的动态过程是通过跟踪微分器来实现的。
 看下这是个啥。
 实际上，这就是一个二阶临界阻尼系统的微分。
 
-所以状态变量方程为
+状态变量方程为
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\left\{\begin{matrix}&space;\dot{x_1}&space;=&space;x_2&space;\\&space;\dot{x_2}&space;=&space;-r^2x_1-2rx_2&plus;r^2v(t)&space;\\&space;y&space;=&space;x_2&space;\end{matrix}\right." target="_blank"><img src="https://latex.codecogs.com/gif.latex?\left\{\begin{matrix}&space;\dot{x_1}&space;=&space;x_2&space;\\&space;\dot{x_2}&space;=&space;-r^2x_1-2rx_2&plus;r^2v(t)&space;\\&space;y&space;=&space;x_2&space;\end{matrix}\right." title="\left\{\begin{matrix} \dot{x_1} = x_2 \\ \dot{x_2} = -r^2x_1-2rx_2+r^2v(t) \\ y = x_2 \end{matrix}\right." /></a>
 
+写成离散方程的样子，就变成一个实际可用的跟踪微分器，即
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\left&space;\{\begin{matrix}&space;x_1(k&plus;1)&space;=&space;x1(k)&plus;hx2(k)&space;\\&space;x_2(k&plus;1)&space;=&space;x2(k)&plus;h(-r^2(x_1(k)-v(k))-2rx_2(k))&space;\end{matrix}&space;\right." target="_blank"><img src="https://latex.codecogs.com/gif.latex?\left&space;\{\begin{matrix}&space;x_1(k&plus;1)&space;=&space;x1(k)&plus;hx2(k)&space;\\&space;x_2(k&plus;1)&space;=&space;x2(k)&plus;h(-r^2(x_1(k)-v(k))-2rx_2(k))&space;\end{matrix}&space;\right." title="\left \{\begin{matrix} x_1(k+1) = x1(k)+hx2(k) \\ x_2(k+1) = x2(k)+h(-r^2(x_1(k)-v(k))-2rx_2(k)) \end{matrix} \right." /></a>
+
+x1为跟踪输出，x2为微分输出，h为采样周期
+
+![](./images/TD_i_d.PNG)
+
+看起来不错，那么这么做的代价是什么。
 
 ## 参考文献
 [1]韩京清. 自抗扰控制技术: 估计补偿不确定因素的控制技术[M]. 国防工业出版社, 2008.
