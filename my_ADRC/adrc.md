@@ -175,7 +175,7 @@ x1为跟踪输出，x2为微分输出，h为采样周期
 
 ### 细枝末节
 
-其他细枝末节的东西不高兴写了，ESO可以有线性的，也可以有非线性的(~~类比激活函数:joy:大误~~)。
+其他细枝末节的东西不高兴写了，TD、控制组合、ESO都可以有线性的，也可以有非线性的(~~类比激活函数:joy:大误~~)。
 
 
 ## 测试一下
@@ -183,11 +183,35 @@ x1为跟踪输出，x2为微分输出，h为采样周期
 
 ![](images/transfer_func.PNG)
 
-使用PID以及简单tune以后，输出是这样的。
+使用PID以及简单自动tune以后，输出是这样的。
+<div align=center>
+<img src="./images/pid_test.PNG" height="300"  />
+</div>
 
-![](images/pid_test.PNG)
+使用ADRC简单手动调参，输出是这样的。
 
-![](images/adrc_test.PNG)
+<div align=center>
+<img src="./images/adrc_test.PNG" height="300"  />
+</div>
 
-## 参考文献
+ADRC效果很出众吧！
+但其实有隐忧，对比下稳态输出的噪声。
+
+ADRC:
+
+![](./images/adrc_test_s_e.PNG)
+
+PID:
+
+![](./images/pid_test_s_e.PNG)
+
+稳态噪声相差10倍~猜测原因是
+* 没有积分?
+* 各种非线性?
+
+所以ADRC没这么简单啦。这只是一片科普文。
+
+以上。
+
+## ~~参考文献~~
 [1]韩京清. 自抗扰控制技术: 估计补偿不确定因素的控制技术[M]. 国防工业出版社, 2008.
