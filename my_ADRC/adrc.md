@@ -52,7 +52,7 @@ PID是将比例、积分、微分做线性加权和作为调节器输出扔给�
 ## ADRC控制器
 ADRC控制器结构如下图所示：
 
-<img src="https://yuml.me/diagram/scruffy/class/[input]->[过渡过程{bg:green}],[过渡过程]v1->[sum_1],[过渡过程]v2->[sum_2],[扩张状态观测器{bg:orange}]z1_n->[sum_1],[扩张状态观测器]z2_n->[sum_2],[sum_1]e1->[非线性组合],[sum_2]e2->[非线性组合{bg:red}],[非线性组合]u0->[sum_3],[sum_3]u->[对象],[对象]->[output],[output]y->[扩张状态观测器],[sum_3]->[b0],[b0]->[扩张状态观测器],[扩张状态观测器]z3_n->[1/b0],[1/b0]->[sum_3]" >
+<img src="https://yuml.me/diagram/scruffy/class/[input]->[过渡过程{bg:green}],[过渡过程]v1->[sum_1],[过渡过程]v2->[sum_2],[扩张状态观测器{bg:orange}]z1_n->[sum_1],[扩张状态观测器]z2_n->[sum_2],[sum_1]e1->[非线性PD],[sum_2]e2->[非线性组合{bg:red}],[非线性组合]u0->[sum_3],[sum_3]u->[对象],[对象]->[output],[output]y->[扩张状态观测器],[sum_3]->[b0],[b0]->[扩张状态观测器],[扩张状态观测器]z3_n->[1/b0],[1/b0]->[sum_3]" >
 
 是不是看着很乱？哈哈~我只是想安利一下这个
 [画图工具](https://yuml.me/diagram/scruffy/class/samples)。
@@ -63,5 +63,6 @@ ADRC控制器结构如下图所示：
 <img src="http://www.apicsllc.com/apics/Ie_cdc01/Image211.gif" width="500"  />
 </div>
 
+看着是不是和那些个pid好不一样。照我的理解，原有的PID相当于这之中的非线性组合，而动态过程构建、扩展状态观测器这两个是新添加的模块。
 ## 参考文献
 [1]韩京清. 自抗扰控制技术: 估计补偿不确定因素的控制技术[M]. 国防工业出版社, 2008.
