@@ -132,7 +132,20 @@ x1为跟踪输出，x2为微分输出，h为采样周期
 最优跟踪微分器有所改动，但思路是一脉相承的，想了解的可以看下书。
 
 #### 扩展状态观测器（ESO）
-这一部分我感觉书上讲的比较模糊(话说整本书都是以实验为主线，模模糊糊的)。
+这一部分我感觉书上讲的比较模糊(话说整本书都是以实验为主线)，那我就讲得更模糊一点好了。
+状态观测器的作用就是根据系统输入和输出估计系统的状态信息。
+观察一个二阶系统
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\left\{&space;\begin{matrix}&space;\dot{x_1}&space;=&space;x_2&space;\\&space;\dot{x_2}&space;=&space;a_1x_1&plus;a_2x_2&plus;u&space;\\&space;y&space;=&space;x_1&space;\end{matrix}&space;\right." target="_blank"><img src="https://latex.codecogs.com/gif.latex?\left\{&space;\begin{matrix}&space;\dot{x_1}&space;=&space;x_2&space;\\&space;\dot{x_2}&space;=&space;a_1x_1&plus;a_2x_2&plus;u&space;\\&space;y&space;=&space;x_2&space;\end{matrix}&space;\right." title="\left\{ \begin{matrix} \dot{x_1} = x_2 \\ \dot{x_2} = a_1x_1+a_2x_2+u \\ y = x_1 \end{matrix} \right." /></a>
+
+由于a1,a2未知，我们只能根据输出y和输入u估计整个状态变量z。
+令e = z-y那么
+
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\left\{&space;\begin{matrix}&space;\dot{z_1}&space;=&space;z_2&space;\\&space;\dot{z_2}&space;=&space;l_1z_1&plus;l_2z_2&plus;u&space;\\&space;y&space;=&space;z_1&space;\end{matrix}&space;\right." target="_blank"><img src="https://latex.codecogs.com/gif.latex?\left\{&space;\begin{matrix}&space;\dot{z_1}&space;=&space;z_2&space;\\&space;\dot{z_2}&space;=&space;l_1z_1&plus;l_2z_2&plus;u&space;\\&space;y&space;=&space;z_2&space;\end{matrix}&space;\right." title="\left\{ \begin{matrix} \dot{z_1} = z_2 \\ \dot{z_2} = l_1z_1+l_2z_2+u \\ y = z_1 \end{matrix} \right." /></a>
+
+<img src="https://yuml.me/diagram/scruffy/class/[input]->[对象],[对象]->[output],[input]-.-^[ESO],[output]-.-^[ESO],[ESO]->[z1],[ESO]->[z2],[ESO]->[z3]" >
+
 
 ## 参考文献
 [1]韩京清. 自抗扰控制技术: 估计补偿不确定因素的控制技术[M]. 国防工业出版社, 2008.
