@@ -132,6 +132,9 @@ x1为跟踪输出，x2为微分输出，h为采样周期
 最优跟踪微分器有所改动，但思路是一脉相承的，想了解的可以看下书。
 
 #### 扩展状态观测器（ESO）
+
+##### 状态观测器（ESO）
+
 这一部分我感觉书上讲的比较模糊(话说整本书都是以实验为主线)，那我就讲得更模糊一点好了。
 状态观测器的作用就是根据系统输入和输出估计系统的状态信息。
 观察一个二阶系统
@@ -139,6 +142,11 @@ x1为跟踪输出，x2为微分输出，h为采样周期
 <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\left\{&space;\begin{matrix}&space;\dot{x_1}&space;=&space;x_2&space;\\&space;\dot{x_2}&space;=&space;a_1x_1&plus;a_2x_2&plus;u&space;\\&space;y&space;=&space;x_1&space;\end{matrix}&space;\right." target="_blank"><img src="https://latex.codecogs.com/png.latex?\inline&space;\left\{&space;\begin{matrix}&space;\dot{x_1}&space;=&space;x_2&space;\\&space;\dot{x_2}&space;=&space;a_1x_1&plus;a_2x_2&plus;u&space;\\&space;y&space;=&space;x_1&space;\end{matrix}&space;\right." title="\left\{ \begin{matrix} \dot{x_1} = x_2 \\ \dot{x_2} = a_1x_1+a_2x_2+u \\ y = x_1 \end{matrix} \right." /></a>
 
 由于a1,a2未知，我们只能根据输出y和输入u估计整个状态变量z。
+一个全维状态观测器是这样的，通过引入l1、l2进行修正使得观测器输出z逼近真实的状态变量x。
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\left\{&space;\begin{matrix}&space;\dot{z_1}&space;=&space;z_2&space;&plus;l_1(y_z-y)&space;\\&space;\dot{z_2}&space;=&space;a_1z_1&plus;a_2z_2&plus;u&space;&plus;l_2(y_z-y)&space;\\&space;y_z&space;=&space;z_1&space;\end{matrix}&space;\right." target="_blank"><img src="https://latex.codecogs.com/png.latex?\inline&space;\left\{&space;\begin{matrix}&space;\dot{z_1}&space;=&space;z_2&space;&plus;l_1(y_z-y)&space;\\&space;\dot{z_2}&space;=&space;a_1z_1&plus;a_2z_2&plus;u&space;&plus;l_2(y_z-y)&space;\\&space;y_z&space;=&space;z_1&space;\end{matrix}&space;\right." title="\left\{ \begin{matrix} \dot{z_1} = z_2 +l_1(y_z-y) \\ \dot{z_2} = a_1z_1+a_2z_2+u +l_2(y_z-y) \\ y_z = z_1 \end{matrix} \right." /></a>
+
+
 令e = z-y那么
 
 
