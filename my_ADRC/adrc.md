@@ -102,7 +102,8 @@ ADRC中的动态过程是通过跟踪微分器来实现的。
 
 所以状态变量方程为
 
-![](http://latex.codecogs.com/gif.latex?\left\{\begin{matrix} \dot{x_1} = x_2 \\ \dot{x_2} = -r^2x_1-2rx_2+r^2v(t) \\ y = x_2 \end{matrix}\right.)
+<img src="http://latex.codecogs.com/gif.latex?\left\{\begin{matrix} \dot{x_1} = x_2 \\ \dot{x_2} = -r^2x_1-2rx_2+r^2v(t) \\ y = x_2 \end{matrix}\right."/>
+
 
 ## 参考文献
 [1]韩京清. 自抗扰控制技术: 估计补偿不确定因素的控制技术[M]. 国防工业出版社, 2008.
