@@ -15,11 +15,11 @@
 
 如果把这样的pid控制器写成传递函数，就是
 
-![W(s)=P+I\\frac{1}{s}+Ds](http://latex.codecogs.com/gif.latex?W(s)=P+I\\frac{1}{s}+Ds)
+![W(s)=P+I\\frac{1}{s}+Ds](http://latex.codecogs.com/png.latex?W(s)=P+I\\frac{1}{s}+Ds)
 
 Z变换的话是变成
 
-![W(z)=P+I\cdot{T_s}\\frac{1}{z-1}+D\\frac{z-1}{z\cdot{T_s}}](http://latex.codecogs.com/gif.latex?W(z)=P+I\cdot{T_s}\\frac{1}{z-1}+D\\frac{z-1}{z\cdot{T_s}})
+![W(z)=P+I\cdot{T_s}\\frac{1}{z-1}+D\\frac{z-1}{z\cdot{T_s}}](http://latex.codecogs.com/png.latex?W(z)=P+I\cdot{T_s}\\frac{1}{z-1}+D\\frac{z-1}{z\cdot{T_s}})
 
 嗯~看起来挺不错的，那么问题在哪儿呢？
 
@@ -33,9 +33,9 @@ Z变换的话是变成
 
 我们观察一个二阶系统：
 
-![](http://latex.codecogs.com/gif.latex?G(s)=\\frac{a_1}{s^2+a_2s+a_1})
+![](http://latex.codecogs.com/png.latex?G(s)=\\frac{a_1}{s^2+a_2s+a_1})
 
-当且仅当![](http://latex.codecogs.com/gif.latex?{a_2}=2\\sqrt{a_1})时，系统是临界阻尼状态，此时系统既没有超调振荡，跟踪速度也是较快的。
+当且仅当![](http://latex.codecogs.com/png.latex?{a_2}=2\\sqrt{a_1})时，系统是临界阻尼状态，此时系统既没有超调振荡，跟踪速度也是较快的。
 而我们制作的控制器也是希望能修改原有的传递函数，使得其能实现类似于临界阻尼这样的状态。对于大多数二阶系统而言，PID控制就能做到。
 
 但如果a1和a2在系统运行中有些许变化怎么办？
@@ -80,33 +80,33 @@ ADRC中的动态过程是通过跟踪微分器来实现的。
 
 传统上，微分可以由传递函数
 
-![](http://latex.codecogs.com/gif.latex?W(s)=\\frac{1}{T}\(1-\\frac{1}{Ts+1}\))
+![](http://latex.codecogs.com/png.latex?W(s)=\\frac{1}{T}\(1-\\frac{1}{Ts+1}\))
 
 得到，式中，T为采样间隔时间。即微分 = (现在-过去)/采样间隔。显然，在输入信号含噪的情况下，这样的微分会放大噪声直至微分信号被淹没。
 
 跟踪微分器中，将微分的传递函数变成了
 
-![](http://latex.codecogs.com/gif.latex?W(s)=\\frac{1}{\tau_2-\tau_1}\(\\frac{1}{\tau_1s+1}-\\frac{1}{\tau_2s+1}\))
+![](http://latex.codecogs.com/png.latex?W(s)=\\frac{1}{\tau_2-\tau_1}\(\\frac{1}{\tau_1s+1}-\\frac{1}{\tau_2s+1}\))
 
 即两个惯性环节相减，目的是通过惯性环节降低噪声。
 进一步地，整理上式并令τ2无限接近于τ1，可得
 
-![](http://latex.codecogs.com/gif.latex?W_d(s)=\\frac{s}{\tau^2s^2+2\tau{s}+1})
+![](http://latex.codecogs.com/png.latex?W_d(s)=\\frac{s}{\tau^2s^2+2\tau{s}+1})
 
 令r = τ可得
 
-![](http://latex.codecogs.com/gif.latex?W_d(s)=\\frac{r^2s}{s^2+2rs+r^2})
+![](http://latex.codecogs.com/png.latex?W_d(s)=\\frac{r^2s}{s^2+2rs+r^2})
 
 看下这是个啥。
 实际上，这就是一个二阶临界阻尼系统的微分。
 
 状态变量方程为
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=\left\{\begin{matrix}&space;\dot{x_1}&space;=&space;x_2&space;\\&space;\dot{x_2}&space;=&space;-r^2x_1-2rx_2&plus;r^2v(t)&space;\\&space;y&space;=&space;x_2&space;\end{matrix}\right." target="_blank"><img src="https://latex.codecogs.com/gif.latex?\left\{\begin{matrix}&space;\dot{x_1}&space;=&space;x_2&space;\\&space;\dot{x_2}&space;=&space;-r^2x_1-2rx_2&plus;r^2v(t)&space;\\&space;y&space;=&space;x_2&space;\end{matrix}\right." title="\left\{\begin{matrix} \dot{x_1} = x_2 \\ \dot{x_2} = -r^2x_1-2rx_2+r^2v(t) \\ y = x_2 \end{matrix}\right." /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=\left\{\begin{matrix}&space;\dot{x_1}&space;=&space;x_2&space;\\&space;\dot{x_2}&space;=&space;-r^2x_1-2rx_2&plus;r^2v(t)&space;\\&space;y&space;=&space;x_2&space;\end{matrix}\right." target="_blank"><img src="https://latex.codecogs.com/png.latex?\left\{\begin{matrix}&space;\dot{x_1}&space;=&space;x_2&space;\\&space;\dot{x_2}&space;=&space;-r^2x_1-2rx_2&plus;r^2v(t)&space;\\&space;y&space;=&space;x_2&space;\end{matrix}\right." title="\left\{\begin{matrix} \dot{x_1} = x_2 \\ \dot{x_2} = -r^2x_1-2rx_2+r^2v(t) \\ y = x_2 \end{matrix}\right." /></a>
 
 写成离散方程的样子，就变成一个实际可用的跟踪微分器，即
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=\left&space;\{\begin{matrix}&space;x_1(k&plus;1)&space;=&space;x1(k)&plus;hx2(k)&space;\\&space;x_2(k&plus;1)&space;=&space;x2(k)&plus;h(-r^2(x_1(k)-v(k))-2rx_2(k))&space;\end{matrix}&space;\right." target="_blank"><img src="https://latex.codecogs.com/gif.latex?\left&space;\{\begin{matrix}&space;x_1(k&plus;1)&space;=&space;x1(k)&plus;hx2(k)&space;\\&space;x_2(k&plus;1)&space;=&space;x2(k)&plus;h(-r^2(x_1(k)-v(k))-2rx_2(k))&space;\end{matrix}&space;\right." title="\left \{\begin{matrix} x_1(k+1) = x1(k)+hx2(k) \\ x_2(k+1) = x2(k)+h(-r^2(x_1(k)-v(k))-2rx_2(k)) \end{matrix} \right." /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=\left&space;\{\begin{matrix}&space;x_1(k&plus;1)&space;=&space;x1(k)&plus;hx2(k)&space;\\&space;x_2(k&plus;1)&space;=&space;x2(k)&plus;h(-r^2(x_1(k)-v(k))-2rx_2(k))&space;\end{matrix}&space;\right." target="_blank"><img src="https://latex.codecogs.com/png.latex?\left&space;\{\begin{matrix}&space;x_1(k&plus;1)&space;=&space;x1(k)&plus;hx2(k)&space;\\&space;x_2(k&plus;1)&space;=&space;x2(k)&plus;h(-r^2(x_1(k)-v(k))-2rx_2(k))&space;\end{matrix}&space;\right." title="\left \{\begin{matrix} x_1(k+1) = x1(k)+hx2(k) \\ x_2(k+1) = x2(k)+h(-r^2(x_1(k)-v(k))-2rx_2(k)) \end{matrix} \right." /></a>
 
 x1为跟踪输出，x2为微分输出，h为采样周期
 差分效果如下所示
@@ -133,7 +133,7 @@ x1为跟踪输出，x2为微分输出，h为采样周期
 
 #### 扩展状态观测器（ESO）
 
-##### 状态观测器（ESO）
+##### 状态观测器（SO）
 
 这一部分我感觉书上讲的比较模糊(话说整本书都是以实验为主线)，那我就讲得更模糊一点好了。
 状态观测器的作用就是根据系统输入和输出估计系统的状态信息。
@@ -142,11 +142,24 @@ x1为跟踪输出，x2为微分输出，h为采样周期
 <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\left\{&space;\begin{matrix}&space;\dot{x_1}&space;=&space;x_2&space;\\&space;\dot{x_2}&space;=&space;a_1x_1&plus;a_2x_2&plus;u&space;\\&space;y&space;=&space;x_1&space;\end{matrix}&space;\right." target="_blank"><img src="https://latex.codecogs.com/png.latex?\inline&space;\left\{&space;\begin{matrix}&space;\dot{x_1}&space;=&space;x_2&space;\\&space;\dot{x_2}&space;=&space;a_1x_1&plus;a_2x_2&plus;u&space;\\&space;y&space;=&space;x_1&space;\end{matrix}&space;\right." title="\left\{ \begin{matrix} \dot{x_1} = x_2 \\ \dot{x_2} = a_1x_1+a_2x_2+u \\ y = x_1 \end{matrix} \right." /></a>
 
 由于a1,a2未知，我们只能根据输出y和输入u估计整个状态变量z。
-一个全维状态观测器是这样的，通过引入l1、l2进行修正使得观测器输出z逼近真实的状态变量x。
+一个全维状态观测器是这样的，通过引入l1、l2进行修正。
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\left\{&space;\begin{matrix}&space;\dot{z_1}&space;=&space;z_2&space;&plus;l_1(y_z-y)&space;\\&space;\dot{z_2}&space;=&space;a_1z_1&plus;a_2z_2&plus;u&space;&plus;l_2(y_z-y)&space;\\&space;y_z&space;=&space;z_1&space;\end{matrix}&space;\right." target="_blank"><img src="https://latex.codecogs.com/png.latex?\inline&space;\left\{&space;\begin{matrix}&space;\dot{z_1}&space;=&space;z_2&space;&plus;l_1(y_z-y)&space;\\&space;\dot{z_2}&space;=&space;a_1z_1&plus;a_2z_2&plus;u&space;&plus;l_2(y_z-y)&space;\\&space;y_z&space;=&space;z_1&space;\end{matrix}&space;\right." title="\left\{ \begin{matrix} \dot{z_1} = z_2 +l_1(y_z-y) \\ \dot{z_2} = a_1z_1+a_2z_2+u +l_2(y_z-y) \\ y_z = z_1 \end{matrix} \right." /></a>
 
 令e = z1-x1那么
+
+![](http://latex.codecogs.com/png.latex?e_2=z_2-x_2)
+
+![](http://latex.codecogs.com/png.latex?\dot{e_1}=-l_1e_1-x_2)
+
+![](http://latex.codecogs.com/png.latex?\dot{e_2}=(-l_2+a_1)e_1+a_2e_2)
+
+因此只要l1、l2选取得当，e->0，观测器输出z逼近真实的状态变量x。
+
+
+##### 扩展状态观测器（ESO）
+哈哈 我又来画乱乱的图了。
+所以**扩展状态观测器**究竟**扩展**在哪儿了呢？
 
 
 <img src="https://yuml.me/diagram/scruffy/class/[input]->[对象],[对象]->[output],[input]-.-^[ESO],[output]-.-^[ESO],[ESO]->[z1],[ESO]->[z2],[ESO]->[z3]" >
