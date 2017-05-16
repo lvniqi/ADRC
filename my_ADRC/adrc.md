@@ -185,13 +185,13 @@ x1为跟踪输出，x2为微分输出，h为采样周期
 
 使用PID以及简单自动tune以后，输出是这样的。
 <div align=center>
-<img src="./images/pid_test.PNG" height="300"  />
+<img src="./images/pid_test.PNG"/>
 </div>
 
 使用ADRC简单手动调参，输出是这样的。
 
 <div align=center>
-<img src="./images/adrc_test.PNG" height="300"  />
+<img src="./images/adrc_test.PNG"/>
 </div>
 
 ADRC效果很出众吧！
